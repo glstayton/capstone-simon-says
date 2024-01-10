@@ -26,10 +26,10 @@ function preload_image(im_url) {
 };
 
 function animationHandler() {
-  preload_image('../assets/1-red/red-click.png');
-  preload_image('../assets/2-green/green-click.png');
-  preload_image('../assets/3-blue/blue-click.png');
-  preload_image('../assets/4-yellow/yellow-click.png');
+  preload_image('./assets/1-red/red-click.png');
+  preload_image('./assets/2-green/green-click.png');
+  preload_image('./assets/3-blue/blue-click.png');
+  preload_image('./assets/4-yellow/yellow-click.png');
 }
 
 /**
@@ -51,22 +51,22 @@ function animationHandler() {
   {
     color: "red",
     selector: document.querySelector(".js-pad-red"),
-    sound: new Audio("../assets/1-red/red.mp3"),
+    sound: new Audio("./assets/1-red/red.mp3"),
   },
   {
     color: "green",
     selector: document.querySelector(".js-pad-green"),
-    sound: new Audio("../assets/2-green/green.mp3"),
+    sound: new Audio("./assets/2-green/green.mp3"),
   },
   {
     color: "blue",
     selector: document.querySelector(".js-pad-blue"),
-    sound: new Audio("../assets/3-blue/blue.mp3"),
+    sound: new Audio("./assets/3-blue/blue.mp3"),
   },
   {
     color: "yellow",
     selector: document.querySelector(".js-pad-yellow"),
-    sound: new Audio("../assets/4-yellow/yellow.mp3"),
+    sound: new Audio("./assets/4-yellow/yellow.mp3"),
   }
   // TODO: Add the objects for the green, blue, and yellow pads. Use object for the red pad above as an example.
 ];
