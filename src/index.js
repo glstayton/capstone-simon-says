@@ -16,6 +16,7 @@ let playerSequence = []; // track the player-generated sequence of pad presses
 let maxRoundCount = 0; // the max number of rounds, varies with the chosen level
 let roundCount = 0; // track the number of rounds that have been played so far
 const padNum = [1, 2, 3, 4];
+const colors = ["red", "green", "blue", "yellow"];
 
 /**
  *
@@ -85,8 +86,7 @@ function startButtonHandler() {
   // TODO: Write your code here.
   setLevel();
   maxRoundCount = setLevel();
-  roundCount = 0;
-  roundCount += 1;
+  roundCount = 1
   startButton.classList.toggle('hidden');
   statusSpan.classList.toggle('hidden');
   playComputerTurn();
@@ -209,7 +209,7 @@ function activatePad(color) {
   let pad = pads.find((pad) => pad.color === color);
   pad.selector.classList.add('activated');
   pad.sound.play();
-  setTimeout(() => {pad.selector.classList.remove('activated')}, "500");
+  setTimeout(() => {pad.selector.classList.remove('activated')}, 500);
 }
 
 /**
@@ -228,8 +228,11 @@ function activatePad(color) {
 
 function activatePads(sequence) {
   // TODO: Write your code here.
-  sequence.forEach(element =>
-    setTimeout(() => {activatePad()}, "600"));
+  sequence.forEach((color, index) => {
+    setTimeout(() => {
+      activatePad(color);
+    }, 600 * index);
+  });
 }
 
 /**
@@ -260,7 +263,8 @@ function activatePads(sequence) {
   padContainer.classList.add("unclickable");
   setText(statusSpan,"The computer's turn...");
   setText(heading, `Round ${roundCount} of ${maxRoundCount}`);
-  computerSequence.push(getRandomItem(pads).color);
+  const randomColor = getRandomItem(colors);
+  computerSequence.push(randomColor);
   activatePads(computerSequence);
   setTimeout(() => playHumanTurn(roundCount), roundCount * 600 + 1000);
 }
@@ -274,7 +278,6 @@ function activatePads(sequence) {
  */
 function playHumanTurn() {
   // TODO: Write your code here.
-  console.log(computerSequence);
   padContainer.classList.remove("unclickable");
   setText(statusSpan, `Begin...`);
 }
@@ -358,6 +361,9 @@ function resetGame(text) {
   // Uncomment the code below:
   alert(text);
   setText(heading, "STONES SPEAK");
+  playerSequence = [];
+  computerSequence = [];
+  roundCount = 0;
   startButton.classList.remove("hidden");
   statusSpan.classList.add("hidden");
   padContainer.classList.add("unclickable");
