@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Microbe&display=swap');
 
 html {
-  background: url('../assets/background.png') no-repeat center center fixed;
+  background: url('../assets/temple.gif') no-repeat center center fixed;
   box-sizing: border-box;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -11,7 +11,8 @@ html {
 }
 
 body {
-  color: yellow;
+  color: red;
+  text-shadow: 3px 3px 3px #000000;
   font-family: 'Rubik Microbe', sans-serif;
   display: flex;
   justify-content: center;
@@ -20,8 +21,7 @@ body {
 }
 
 main {
-  background-color: #000;
-  padding: 40px;
+    padding: 40px;
 }
 
 h1 {
@@ -37,20 +37,20 @@ h1 {
   display: inline-block;
   height: 38px;
   padding: 0 30px;
-  color: yellow;
+  color: red;
   text-align: center;
   font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
   background-color: transparent;
-  border: 1px solid yellow;
+  border: 1px solid red;
   cursor: pointer;
 }
 
 .start-button:hover {
-  color: greenyellow;
+  color: pink;
   font-size: 18px;
-  border-color: greenyellow;
+  border-color: pink;
   transform: rotate(5deg);
 }
 
@@ -67,70 +67,83 @@ h1 {
 }
 
 .pad-red {
-  border-top-left-radius: 200px;
-  background-color: red;
+  /* border-top-left-radius: 200px; */
+  background: url('../assets/1-red/red.png') center no-repeat;
+  background-size: 110%;
+  border-radius: 50%;
 }
 
 .pad-red:hover,
 .pad-red:focus {
-  background-color: #ff451a;
+  background-color: #ff451a31;
   transform: rotate(-5deg);
 }
 
 .pad-red:active,
 .pad-red.activated {
-  background-color: #ff5c36;
+  background-color: #ff5c3631;
+  background: url('../assets/1-red/red-click.png') center no-repeat;
+  background-size: 110%;
   transform: translateY(10px);
 }
 
 .pad-green {
-  border-top-right-radius: 200px;
-  background-color: green;
+  background: url('../assets/2-green/green.png') center no-repeat;
+  background-size: 110%;
+  border-radius: 50%;
 }
 
 .pad-green:hover,
 .pad-green:focus {
-  background-color: #8cc218;
+  background-color: #8cc21831;
   transform: rotate(5deg);
 }
 
 .pad-green:active,
 .pad-green.activated {
-  background-color: #a0ea00;
-  transform: translateY(10px);
-}
-
-.pad-yellow {
-  border-bottom-right-radius: 200px;
-  background-color: yellow;
-}
-
-.pad-yellow:hover,
-.pad-yellow:focus {
-  background-color: #ffb900;
-  transform: rotate(5deg);
-}
-
-.pad-yellow:active,
-.pad-yellow.activated {
-  background-color: #ffca3d;
+  background-color: #a0ea0031;
+  background: url('../assets/2-green/green-click.png') center no-repeat;
+  background-size: 110%;
   transform: translateY(10px);
 }
 
 .pad-blue {
-  border-bottom-left-radius: 200px;
-  background-color: blue;
+  background: url('../assets/3-blue/blue.png') center no-repeat;
+  background-size: 110%;
+  border-radius: 50%;
 }
 
 .pad-blue:hover,
 .pad-blue:focus {
-  background-color: #139ddd;
+  background-color: #139ddd31;
   transform: rotate(5deg);
 }
 
 .pad-blue:active,
 .pad-blue.activated {
-  background-color: #2bbcff;
+  background-color: #2bbcff31;
+  background: url('../assets/3-blue/blue-click.png') center no-repeat;
+  background-size: 110%;
+  transform: translateY(10px);
+}
+
+.pad-yellow {
+  background: url('../assets/4-yellow/yellow.png') center no-repeat;
+  background-size: 110%;
+  border-radius: 50%;
+}
+
+.pad-yellow:hover,
+.pad-yellow:focus {
+  background-color: #ffb90031;
+  transform: rotate(5deg);
+}
+
+.pad-yellow:active,
+.pad-yellow.activated {
+  background-color: #ffca3d31;
+  background: url('../assets/4-yellow/yellow-click.png') center no-repeat;
+  background-size: 110%;
   transform: translateY(10px);
 }
 

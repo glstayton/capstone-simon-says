@@ -18,6 +18,20 @@ let roundCount = 0; // track the number of rounds that have been played so far
 const padNum = [1, 2, 3, 4];
 const colors = ["red", "green", "blue", "yellow"];
 
+// image preloader
+
+function preload_image(im_url) {
+  let img = new Image();
+  img.src = im_url;
+};
+
+function animationHandler() {
+  preload_image('../assets/1-red/red-click.png');
+  preload_image('../assets/2-green/green-click.png');
+  preload_image('../assets/3-blue/blue-click.png');
+  preload_image('../assets/4-yellow/yellow-click.png');
+}
+
 /**
  *
  * The `pads` array contains an array of pad objects.
@@ -37,22 +51,22 @@ const colors = ["red", "green", "blue", "yellow"];
   {
     color: "red",
     selector: document.querySelector(".js-pad-red"),
-    sound: new Audio("../assets/simon-says-sound-1.mp3"),
+    sound: new Audio("../assets/1-red/red.mp3"),
   },
   {
     color: "green",
     selector: document.querySelector(".js-pad-green"),
-    sound: new Audio("../assets/simon-says-sound-2.mp3"),
+    sound: new Audio("../assets/2-green/green.mp3"),
   },
   {
     color: "blue",
     selector: document.querySelector(".js-pad-blue"),
-    sound: new Audio("../assets/simon-says-sound-3.mp3"),
+    sound: new Audio("../assets/3-blue/blue.mp3"),
   },
   {
     color: "yellow",
     selector: document.querySelector(".js-pad-yellow"),
-    sound: new Audio("../assets/simon-says-sound-4.mp3"),
+    sound: new Audio("../assets/4-yellow/yellow.mp3"),
   }
   // TODO: Add the objects for the green, blue, and yellow pads. Use object for the red pad above as an example.
 ];
@@ -312,8 +326,7 @@ function checkPress(color) {
   setText(statusSpan,`${remainingPresses} presses left...`);
   if (computerSequence[index] !== playerSequence[index]) {
     resetGame("Sorry! Maybe next time.");
-  };
-  if (remainingPresses === 0) {
+  } else if (remainingPresses === 0) {
     checkRound();
   };
 
@@ -384,6 +397,7 @@ window.maxRoundCount = maxRoundCount;
 window.roundCount = roundCount;
 window.startButtonHandler = startButtonHandler;
 window.padHandler = padHandler;
+window.animationHandler = animationHandler;
 window.setLevel = setLevel;
 window.getRandomItem = getRandomItem;
 window.setText = setText;
